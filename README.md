@@ -23,7 +23,7 @@ pip install -r requirements.txt
 
 ## Usage
 
--Give url to tool that you want to crawl.
+- Give url to tool that you want to crawl.
 
 - This python code will save the results of the analysis to a file named 'pyWebCrawler.txt'.
 
@@ -47,6 +47,10 @@ options:
 
 ```
 ## Tool Output
+
+![image](https://github.com/aashishsec/pyWebCrawler/assets/65489287/71897d24-e2ab-4217-b38b-b49c42d678cf)
+
+## Total Tool Output
 
 ```bash
 
