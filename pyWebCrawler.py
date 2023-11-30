@@ -1,6 +1,5 @@
 import requests,argparse,re,random,colorama,concurrent.futures
 
-
 from bs4 import BeautifulSoup
 
 from datetime import datetime
