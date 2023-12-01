@@ -34,13 +34,21 @@ random_color = random.choice(colors)
 
 bold = Style.BRIGHT
 
+global_output=[]
+
 class WebCrawler:
 
-    def __init__(self, url, max_depth):
+    global global_output
+
+    def __init__(self, url, max_depth,threads,output):
 
         self.url = url
 
         self.max_depth = max_depth
+
+        self.threads=threads
+
+        self.output=output
 
         self.subdomains = set()
 
@@ -50,7 +58,7 @@ class WebCrawler:
 
     def start_crawling(self):
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=args.threads) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.threads) as executor:
             
             executor.submit(self.crawl, self.url, depth=1)
 
@@ -144,6 +152,8 @@ class WebCrawler:
 
                 print(f"{bold}{random_color}[+] Subdomains : {subdomain}")
 
+                global_output.append(f"[+] Subdomains : {subdomain}")
+
         print()
 
         if self.links:
@@ -151,6 +161,8 @@ class WebCrawler:
             for link in self.links:
 
                 print(f"{bold}{random_color}[+] Links : {link}")
+
+                global_output.append(f"[+] Links : {link}")
 
         print()
 
@@ -160,9 +172,19 @@ class WebCrawler:
 
                 print(f"{bold}{random_color}[+] JS Files : {file}")
 
+                global_output.append(f"[+] JS Files : {file}")
+
+    def save_output(self):
+            
+        with open(self.output, 'w') as file:
+
+            file.write('\n'.join(global_output))
+
+
+
 def get_args():
 
-    parser=argparse.ArgumentParser(description=f"{bold}{random_color}pyCrawler is a tool designed to automatically extracting urls and Js from websites.")
+    parser=argparse.ArgumentParser(description=f"{bold}{random_color}pyCrawler is a tool designed to automatically extracting Urls, Subdomins and JS Files from websites.")
 
     parser.add_argument('-u', '--url', dest='url', help=f"{bold}{random_color}Specify the URL, provide it along http/https", required=True)
 
@@ -170,16 +192,22 @@ def get_args():
 
     parser.add_argument('-t', '--threads', dest='threads', type=int, default=100, help=f"{bold}{random_color}Specify the threads, default=100.")
 
+    parser.add_argument('-o', '--output', dest='output', default="pyWebCrawler.txt", help=f"{bold}{random_color}Specify the file u want to save, default=pyWebCrawler.txt")
+
     return parser.parse_args()
+
+
 
 if __name__ == "__main__":
 
     args = get_args()
 
-    web_crawler = WebCrawler(args.url, args.depth)
+    web_crawler = WebCrawler(args.url, args.depth,args.threads,args.output)
 
     web_crawler.print_banner()
 
     web_crawler.start_crawling()
 
     web_crawler.print_results()
+
+    web_crawler.save_output()
