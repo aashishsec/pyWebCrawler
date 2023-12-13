@@ -1,9 +1,19 @@
 # pyWebCrawler
 pyWebCrawler
 
-- pyWebCrawler is a tool designed to efficiently probe for Links, Subdomains and JS Files.
+- pyCrawler is a Python-based web crawling tool designed to automatically extract URLs, subdomains, and JavaScript files from websites.
   
--  Works in all platforms.
+-  It provides a simple command-line interface for users to specify the target URL, recursion depth, number of threads, and output file.
+
+## Features
+
+- Extracts subdomains, links, and JavaScript files recursively.
+  
+- Supports multithreaded crawling for improved performance.
+  
+- Allows customization of recursion depth.
+  
+- Provides an option to save the output to a specified file.
 
 ## Installation
 
