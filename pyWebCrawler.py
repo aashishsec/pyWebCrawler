@@ -124,7 +124,7 @@ class WebCrawler:
               
                Author   : Aashish💕💕  
                                               
-               Github   : https://github.com/aashish36
+               Github   : https://github.com/aashishsec
               
                pyCrawler is a tool designed to automatically extracting urls and Js from websites.
 
