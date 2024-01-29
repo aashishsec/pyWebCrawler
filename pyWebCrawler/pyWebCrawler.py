@@ -1,4 +1,14 @@
-import requests,argparse,re,random,colorama,concurrent.futures
+import requests
+
+import argparse
+
+import re
+
+import random
+
+import colorama
+
+import concurrent.futures
 
 from bs4 import BeautifulSoup
 
