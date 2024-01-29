@@ -1,6 +1,10 @@
 # pyWebCrawler
 [Tool Link](https://github.com/aashishsec/pyWebCrawler/)
 
+---
+
+![GitHub last commit](https://img.shields.io/github/last-commit/aashishsec/pyWebCrawler) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aashishsec/pyWebCrawler) [![GitHub license](https://img.shields.io/github/license/aashishsec/pyWebCrawler)](https://github.com/aashishsec/pyWebCrawler/blob/main/LICENSE) [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/aashishsec/)
+
 - pyCrawler is a Python-based web crawling tool designed to automatically extract URLs, subdomains, and JavaScript files from websites.
   
 -  It provides a simple command-line interface for users to specify the target URL, recursion depth, number of threads, and output file.
